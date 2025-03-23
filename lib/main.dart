@@ -1,10 +1,34 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:packagedeliveryapp/pages/bottomnav.dart';
+import 'package:packagedeliveryapp/pages/detail_page.dart';
 import 'package:packagedeliveryapp/pages/home.dart';
+import 'package:packagedeliveryapp/pages/login.dart';
 import 'package:packagedeliveryapp/pages/onboarding.dart';
+import 'package:packagedeliveryapp/pages/order.dart';
+import 'package:packagedeliveryapp/pages/signup.dart';
+import 'firebase_options.dart';
+//
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final FirebaseOptions options = FirebaseOptions(
+    apiKey: "AIzaSyAtTfOQiB7Eg8Ixwr2oS47l2vtyyYxbqW0",
+    appId: "1:582107257927:android:7b7495894e5a5104d9e562",
+    messagingSenderId: "582107257927",
+    projectId: "foodgo-8b1f6",
+
+  );
+
+  if (options != null) {
+    await Firebase.initializeApp(options: options);
+  } else {
+    throw Exception("FirebaseOptions cannot be null when creating the default app.");
+  }
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +43,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Bottomnav(),
+      home: Login(),
     );
   }
 }

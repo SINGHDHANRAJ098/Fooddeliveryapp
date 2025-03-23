@@ -13,14 +13,15 @@ class Bottomnav extends StatefulWidget {
 }
 
 class _BottomnavState extends State<Bottomnav> {
-  late List<Widget>pages;
+  late List<Widget> pages;
 
   late Home home;
   late Order order;
   late Wallet wallet;
   late Profile profile;
 
-  int currentTabIndex =0;
+  int currentTabIndex = 0;
+
   @override
   void initState() {
     home = Home();
@@ -28,31 +29,30 @@ class _BottomnavState extends State<Bottomnav> {
     wallet = Wallet();
     profile = Profile();
 
-    pages=[home, order,wallet,profile];
+    pages = [home, order, wallet, profile];
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      bottomNavigationBar:CurvedNavigationBar(
-       height: 70,
+      bottomNavigationBar: CurvedNavigationBar(
+        height: 70,
         backgroundColor: Colors.white,
         color: Color(0xffef2b39),
         animationDuration: Duration(milliseconds: 500),
-
-        onTap: (int index){
+        onTap: (int index) {
           setState(() {
-            currentTabIndex==index;
+            currentTabIndex = index; // Corrected this line
           });
         },
-          items: [Icon(Icons.home,color: Colors.white,size: 30,),
-        Icon(Icons.shopping_bag,color: Colors.white,size: 30,),
-        Icon(Icons.wallet,color: Colors.white,size: 30,),
-        Icon(Icons.person,color: Colors.white,size: 30,),
-
-      ]),
+        items: [
+          Icon(Icons.home, color: Colors.white, size: 30),
+          Icon(Icons.shopping_bag, color: Colors.white, size: 30),
+          Icon(Icons.wallet, color: Colors.white, size: 30),
+          Icon(Icons.person, color: Colors.white, size: 30),
+        ],
+      ),
       body: pages[currentTabIndex],
     );
   }

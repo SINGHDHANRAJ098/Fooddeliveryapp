@@ -29,4 +29,16 @@ class AppWiget {
         color: Colors.black,fontSize: 24.0,fontWeight: FontWeight.bold
     );
   }
+
+  static TextStyle boldwhiteTextFeildStyle() {
+    return TextStyle(
+        color: Colors.white, fontSize: 28.0, fontWeight: FontWeight.bold
+    );
+  }
+
+  static TextStyle SignupTextFeildStyle(){
+    return TextStyle(
+        color: Colors.black,fontSize: 20.0,fontWeight: FontWeight.bold
+    );
+  }
 }
